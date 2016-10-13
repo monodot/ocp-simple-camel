@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Read in the S2I_SOURCE_DIR variable and friends
-source `dirname "$0"`/s2i-setup
+source /usr/local/s2i/s2i-setup
 
 # insert settings for mirrors/repository managers into settings.xml if supplied
 function configure_mirrors() {
