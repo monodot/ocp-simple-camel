@@ -10,6 +10,9 @@ function configure_mirrors() {
     </mirror>"
 
     #sed -i "s|<!-- ### configured mirrors ### -->|$xml|" $HOME/.m2/settings.xml
+
+
+    echo "Updating ${S2I_SOURCE_DIR}/configuration/settings.xml......."
     sed -i "s|<!-- ### configured mirrors ### -->|$xml|" ${S2I_SOURCE_DIR}/configuration/settings.xml
   fi
 }
