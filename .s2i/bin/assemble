@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# insert settings for mirrors/repository managers into settings.xml if supplied
+function configure_mirrors() {
+  if [ -n "$MAVEN_MIRROR_URL" ]; then
+    xml="    <mirror>\
+      <id>mirror.default</id>\
+      <url>$MAVEN_MIRROR_URL</url>\
+      <mirrorOf>external:*</mirrorOf>\
+    </mirror>"
+    sed -i "s|<!-- ### configured mirrors ### -->|$xml|" $HOME/.m2/settings.xml
+  fi
+}
+
+
+configure_mirrors
+
+exec /usr/local/s2i/assemble
