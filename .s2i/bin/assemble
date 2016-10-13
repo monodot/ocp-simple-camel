@@ -9,18 +9,8 @@ function configure_mirrors() {
       <mirrorOf>external:*</mirrorOf>\
     </mirror>"
 
-    xml="<settings xmlns=\"http://maven.apache.org/SETTINGS/1.0.0\"\
-	    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
-	    xsi:schemaLocation=\"http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd\">\
-	    <mirrors>\
-	      <id>mirror.default</id>\
-	      <url>$MAVEN_MIRROR_URL</url>\
-	      <mirrorOf>external:*</mirrorOf>\
-	    </mirrors>\
-	 </settings>"
-    cat $xml > $HOME/.m2/settings.xml
-
     #sed -i "s|<!-- ### configured mirrors ### -->|$xml|" $HOME/.m2/settings.xml
+    sed -i "s|<!-- ### configured mirrors ### -->|$xml|" ${S2I_SOURCE_DIR}/configuration/settings.xml
   fi
 }
 
