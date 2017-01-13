@@ -12,10 +12,7 @@ function configure_mirrors() {
       <mirrorOf>external:*</mirrorOf>\
     </mirror>"
 
-    #sed -i "s|<!-- ### configured mirrors ### -->|$xml|" $HOME/.m2/settings.xml
-
-
-    echo "Updating ${S2I_SOURCE_DIR}/configuration/settings.xml......."
+    echo "Adding $MAVEN_MIRROR_URL as a Maven mirror to ${S2I_SOURCE_DIR}/configuration/settings.xml......."
     sed -i "s|<!-- ### configured mirrors ### -->|$xml|" ${S2I_SOURCE_DIR}/configuration/settings.xml
   fi
 }

@@ -9,6 +9,14 @@ which can be viewed from [github](https://github.com/fabric8io/ipaas-quickstarts
 This example uses a timer to trigger a message every 5th second that is routed using a content based router, based on
 the message is regarded as high priority or not.
 
+### Using a Maven mirror with OpenShift
+
+This example uses a customised `.s2i/bin/assemble` script, which will update the included `configuration/settings.xml` file to set a Maven mirror URL, if the environment variable `MAVEN_MIRROR_URL` is passed to the build.
+
+So, to specify a Maven mirror URL, you could start a build using the following:
+
+    oc new-build fis-java-openshift~https://github.com/monodot/ocp-simple-camel.git MAVEN_MIRROR_URL=http://yournexus:8081/nexus/content/groups/public/
+    oc new-app ocp-simple-camel:latest
 
 ### Building
 
