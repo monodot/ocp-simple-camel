@@ -15,7 +15,7 @@ This example uses a customised `.s2i/bin/assemble` script, which will update the
 
 So, to specify a Maven mirror URL, you could start a build using the following:
 
-    oc new-build fis-java-openshift~https://github.com/monodot/ocp-simple-camel.git MAVEN_MIRROR_URL=http://yournexus:8081/nexus/content/groups/public/
+    oc new-build fis-java-openshift~https://github.com/monodot/ocp-simple-camel.git -e MAVEN_MIRROR_URL=http://yournexus:8081/nexus/content/groups/public/
     oc new-app ocp-simple-camel:latest
 
 ### Building
